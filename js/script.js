@@ -220,15 +220,27 @@ for (let el of data) {
 }
 $table.innerHTML = str;
 
-const typesArray = data.map(el => el.type)
+const typesArray = []
+ data.forEach(el => {
+     if (typesArray.includes(el.type)){
+        return
+    }
+    typesArray.push(el.type)
+ })
+typesArray.sort((a, b) => a - b)
+
     console.log(typesArray);
 
+    const select = document.querySelector("select")
+
+typesArray.forEach(el => {
+    const option = document.createElement("option")
+    option.value = el
+    option.innerHTML = `type ${el}` 
+    select.append(option)
+})
 
 
-// data.filter((item) => {
-//     if (item.type > 0) {
-//         return item;
-//         // console.log(item);
-//     }
-// })
+
+
 
