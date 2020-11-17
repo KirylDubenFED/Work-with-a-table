@@ -217,7 +217,18 @@ let $table = document.querySelector('.table');
 let str = '';
 for (let el of data) {
 	str += `<tr><td> ${el.price}</td><td> ${el.type}</td><td> ${el.area}</td><td> ${el.presence}</td><td> ${el.name}</td><td> ${el.id}</td></tr>`;
-	//  console.log (el)
 }
-
 $table.innerHTML = str;
+
+const typesArray = data.map(el => el.type)
+    console.log(typesArray);
+
+
+
+// data.filter((item) => {
+//     if (item.type > 0) {
+//         return item;
+//         // console.log(item);
+//     }
+// })
+
