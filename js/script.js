@@ -232,6 +232,7 @@ typesArray.sort((a, b) => a - b)
     console.log(typesArray);
 
     const select = document.querySelector("select")
+    const filterButton = document.querySelector('.filter')
 
 typesArray.forEach(el => {
     const option = document.createElement("option")
@@ -239,6 +240,16 @@ typesArray.forEach(el => {
     option.innerHTML = `type ${el}` 
     select.append(option)
 })
+
+filterButton.addEventListener('click', () => {
+    const filteredArr = data.filter(el => el.type == select.value)
+    let str = ''
+    filteredArr.forEach(el => {
+        str+=`<tr><td> ${el.price}</td><td> ${el.type}</td><td> ${el.area}</td><td> ${el.presence}</td><td> ${el.name}</td><td> ${el.id}</td></tr>`
+    })
+    $table.innerHTML = str
+})
+
 
 
 
